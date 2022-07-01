@@ -32,14 +32,8 @@ export class HabitacionesComponent implements OnInit {
   ngOnInit(): void {
     console.log('Hola Mundo');
     this.getHabitaciones();
-    //Alert
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Estas en la página de habitaciones',
-      showConfirmButton: false,
-      timer: 1500
-    })
+  
+    
   }
 
   getHabitaciones() {

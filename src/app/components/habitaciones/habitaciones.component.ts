@@ -32,6 +32,8 @@ export class HabitacionesComponent implements OnInit {
   ngOnInit(): void {
     console.log('Hola Mundo');
     this.getHabitaciones();
+
+
   }
 
   getHabitaciones() {
@@ -131,3 +133,5 @@ export class HabitacionesComponent implements OnInit {
   }
 
 }
+
+//Rep reciente

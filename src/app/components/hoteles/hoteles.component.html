@@ -12,25 +12,6 @@
       <h6 class="text-center">Agregar hotel</h6>
     </button>
         <div class="row gx-5">
-            <div class="col-lg-4 mb-5" *ngFor="let hot of hotelesModelGet">
-                <div class="card h-100 shadow border-0">
-                    <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="...">
-                    <div class="card-body p-4">
-                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Hotel</div>
-                        <h5 class="card-title mb-3">{{hot.nombre}}</h5>
-                        <p class="card-text mb-0">Direccion: {{hot.direccion}}</p>
-                        <p class="card-text mb-0">Telefono: {{hot.telefono}} </p>
-                    </div>
-                    <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                        <div class="d-flex align-items-end justify-content-between">
-                            <div class="d-grid"><a class="btn btn-outline-info" data-bs-toggle="offcanvas" aria-controls="offcanvasExample" data-bs-target="#offcanvasExample" (click)="getHotelesId(hot._id)">Editar</a></div>
-                            <div class="d-grid"><a class="btn btn-outline-danger" (click)="deleteHotel(hot._id)">Eliminar</a></div>
-                            <div class="d-grid"><a class="btn btn-outline" routerLink="/habitaciones">Habitaciones</a></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
             <div class="row gx-5">
                 <div class="col-lg-4 mb-5" *ngFor="let hot of hotelesModelGet">
                     <div class="card h-100 shadow border-0">

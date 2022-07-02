@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Habitaciones } from 'src/app/models/habitacion.models';
 import { HabitacionService } from 'src/app/services/habitacion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-habitaciones',
@@ -55,9 +56,28 @@ export class HabitacionesComponent implements OnInit {
         this.habitacionModelPost.numeroHabitacion = '';
         this.habitacionModelPost.numeroPiso = '';
         this.habitacionModelPost.precio = '';
+
+        //Alert
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Habitación Agregado Correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        })
+
       },
       (error) => {
         console.log(<any>error);
+        //Alert
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Error al agregar la habitación',
+          showConfirmButton: false,
+          timer: 1500
+        })
+
       }
     )
   }
@@ -67,6 +87,16 @@ export class HabitacionesComponent implements OnInit {
       (response) => {
         console.log(response);
         this.getHabitaciones();
+
+        //Alert
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Habitación Eliminado Correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        })
+
       },
       (error) => {
         console.log(<any>error);

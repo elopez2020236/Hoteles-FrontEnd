@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { HabitacionesComponent } from './components/habitaciones/habitaciones.component';
 import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component';
+import { EventosComponent } from './components/eventos/eventos.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DetalleHabitacionComponent } from './components/detalle-habitacion/deta
     HomeComponent,
     HotelesComponent,
     HabitacionesComponent,
-    DetalleHabitacionComponent
+    DetalleHabitacionComponent,
+    EventosComponent
   ],
 
   imports: [

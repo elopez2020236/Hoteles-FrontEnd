@@ -32,8 +32,8 @@ export class HabitacionesComponent implements OnInit {
   ngOnInit(): void {
     console.log('Hola Mundo');
     this.getHabitaciones();
-  
-    
+
+
   }
 
   getHabitaciones() {
@@ -75,7 +75,7 @@ export class HabitacionesComponent implements OnInit {
         Swal.fire({
           position: 'top-end',
           icon: 'error',
-          title: 'Erro al agregar la habitación',
+          title: 'Error al agregar la habitación',
           showConfirmButton: false,
           timer: 1500
         })

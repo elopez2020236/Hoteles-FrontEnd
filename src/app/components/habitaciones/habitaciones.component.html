@@ -9,6 +9,11 @@
         </div>
     </div>
 
+    <!-- Button ir a Eventos -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-success me-md-2" type="button" routerLink="/eventos">Visualización de Eventos</button>
+    </div>
+
     <!-- Button Agregar Modal -->
     <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarHabitacion">
       Agregar una nueva Habitación
@@ -114,6 +119,7 @@
                 <label for="inputPrecio" class="form-label ">Precio</label>
                 <input type="text" class="form-control" id="inputPrecio" name="precio" #precio="ngModel" [(ngModel)]="habitacionModelGetId.precio">
             </div>
+
             <button type="submit" class="btn btn-success" (click)="putHabitacion()" data-bs-dismiss="offcanvas">Guardar Cambios</button>
         </form>
     </div>

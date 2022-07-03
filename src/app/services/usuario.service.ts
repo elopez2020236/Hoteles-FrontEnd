@@ -57,7 +57,8 @@ export class UsuarioService {
     });
   }
 
-  cerrarSesion() {
+  clearToken() {
     localStorage.clear();
   }
+
 }

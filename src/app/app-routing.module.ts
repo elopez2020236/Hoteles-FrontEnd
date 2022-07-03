@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'hoteles', component: HotelesComponent, },
+
   { path: 'habitaciones', component: HabitacionesComponent},
   { path: 'sing-up-gerente', component: SingUpGerenteComponent},
   { path: 'eventos', component: EventosComponent},

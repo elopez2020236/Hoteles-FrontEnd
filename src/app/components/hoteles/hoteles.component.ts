@@ -15,6 +15,7 @@ export class HotelesComponent implements OnInit {
   public hotelesModelGetId: Hotel;
   public hotelesModelGet: Hotel;
   public token;
+  public searchHotel;
   constructor(
     private _hotelService: HotelService,
     private _usuarioService: UsuarioService
@@ -183,6 +184,8 @@ export class HotelesComponent implements OnInit {
       }
     });
   }
+
+
 
   // deleteHotel(id) {
   //   this._hotelService.eliminarHoteles(id, this.token).subscribe(

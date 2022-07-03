@@ -12,6 +12,9 @@ import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { HabitacionesComponent } from './components/habitaciones/habitaciones.component';
 import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component';
 import { InterfazComponent } from './components/interfaz/interfaz.component';
+import { EventosComponent } from './components/eventos/eventos.component';
+import { SearchHotelPipe } from './pipes/search-hotel.pipe';
+import { SingUpGerenteComponent } from './components/sing-up-gerente/sing-up-gerente.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { InterfazComponent } from './components/interfaz/interfaz.component';
     HotelesComponent,
     HabitacionesComponent,
     DetalleHabitacionComponent,
-    InterfazComponent
+    InterfazComponent,
+    EventosComponent,
+    SearchHotelPipe,
+    SingUpGerenteComponent
   ],
 
   imports: [

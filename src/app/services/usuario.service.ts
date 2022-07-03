@@ -57,6 +57,13 @@ export class UsuarioService {
     });
   }
 
+  registrarGerente(modelUser: Usuario): Observable<any> {
+    let parametros = JSON.stringify(modelUser);
+    return this._http.post(this.url + '/crearGerente', parametros, {
+      headers: this.headersVariable,
+    });
+  }
+
   clearToken() {
     localStorage.clear();
   }

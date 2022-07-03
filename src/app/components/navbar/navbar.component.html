@@ -39,39 +39,32 @@
             </g>
           </svg>
           HiTel</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"><i class="fas fa-bars" style="margin:5px 0px 0px 0px;"></i></span>
-      </button>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"><i class="fas fa-bars" style="margin:5px 0px 0px 0px;"></i></span>
+  </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav m-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" routerLink="home">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="hoteles" >Hoteles</a>
-                    </li>
-                </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="home">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="hoteles" >Hoteles</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn"   routerLink="sign-up">Registrarse</button>
 
-                
-                <form class="form-inline my-2 my-lg-0">
-                  <button class="btn" routerLink="interfaz">Interfaz de Usuario</button>
-                    <button class="btn" routerLink="sign-up">Registrarse</button>
+                <button   class="btn"
+                routerLink="sing-up-gerente">RegistrarGerente</button>
 
-                <form class="form-inline my-2 my-lg-0">
-                    <button class="btn"   routerLink="sign-up">Registrarse</button>
+                <button class="btn" routerLink="sign-in">Login</button>
+                <button class="btn" routerLink="sign-in" (click)="VaciarToken()">Cerrar Sesión</button>
 
-                    <button   class="btn"
-                    routerLink="sing-up-gerente">RegistrarGerente</button>
+            </form>
+        </div>
+    </nav>
 
-
-                    <button class="btn" routerLink="sign-in">Login</button>
-                    <button class="btn" routerLink="sign-in" (click)="VaciarToken()">Cerrar Sesión</button>
-
-                </form>
-            </div>
-        </nav>
-
-    </div>
+</div>
 </div>

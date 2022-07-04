@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'hoteles', component: HotelesComponent},
   { path: 'habitaciones', component: HabitacionesComponent},
   { path: 'eventos', component: EventosComponent},
+  { path: 'servicios', component: ServiciosComponent},
   { path: 'detalleHabitacion/:idHabitacion', component: DetalleHabitacionComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./habitaciones.component.scss'],
   providers: [HabitacionService]
 })
+
 export class HabitacionesComponent implements OnInit {
 
   //Variable para almacenar todos los datos que obtenga de mi Get

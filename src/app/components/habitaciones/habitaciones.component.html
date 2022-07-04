@@ -9,9 +9,10 @@
         </div>
     </div>
 
-    <!-- Button ir a Eventos -->
+    <!-- Button ir a Eventos y Servicios -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="btn btn-success me-md-2" type="button" routerLink="/eventos">Visualización de Eventos</button>
+        <button class="btn btn-success" type="button" routerLink="/servicios">Visualización de Servicios</button>
     </div>
 
     <!-- Button Agregar Modal -->
@@ -74,7 +75,7 @@
                         <input type="text " id="inputPrecio " class="form-control " name="precio" #precio="ngModel" [(ngModel)]="habitacionModelPost.precio">
                     </div>
 
-                    <div  class="mg-3 ">
+                    <div class="mg-3 ">
                         <select class="form-select" aria-label="Default select example">
                             <option selected>Open this select menu</option>
                             <option value="1">One</option>

@@ -12,6 +12,7 @@ import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { HabitacionesComponent } from './components/habitaciones/habitaciones.component';
 import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component';
 import { EventosComponent } from './components/eventos/eventos.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EventosComponent } from './components/eventos/eventos.component';
     HotelesComponent,
     HabitacionesComponent,
     DetalleHabitacionComponent,
-    EventosComponent
+    EventosComponent,
+    ServiciosComponent
   ],
 
   imports: [

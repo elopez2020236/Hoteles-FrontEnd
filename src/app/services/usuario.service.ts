@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from '../models/usuario.model';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -16,6 +17,14 @@ export class UsuarioService {
   public identidad;
 
   constructor(public _http: HttpClient) {}
+
+  obtenerUsuario(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/verUsuario', {
+      headers: this.headersVariable,
+    });
+  }
+
   login(usuario, obtenerToken = null): Observable<any> {
     if (obtenerToken != null) {
       usuario.obtenerToken = obtenerToken;
@@ -57,8 +66,17 @@ export class UsuarioService {
     });
   }
 
+  registrarGerente(modelUser: Usuario): Observable<any> {
+    let parametros = JSON.stringify(modelUser);
+    return this._http.post(this.url + '/crearGerente', parametros, {
+      headers: this.headersVariable,
+    });
+  }
+
   clearToken() {
     localStorage.clear();
   }
 
+
+  
 }

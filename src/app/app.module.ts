@@ -13,6 +13,7 @@ import { HabitacionesComponent } from './components/habitaciones/habitaciones.co
 import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component';
 import { InterfazComponent } from './components/interfaz/interfaz.component';
 import { EventosComponent } from './components/eventos/eventos.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
 import { SearchHotelPipe } from './pipes/search-hotel.pipe';
 import { SingUpGerenteComponent } from './components/sing-up-gerente/sing-up-gerente.component';
 
@@ -26,6 +27,8 @@ import { SingUpGerenteComponent } from './components/sing-up-gerente/sing-up-ger
     HotelesComponent,
     HabitacionesComponent,
     DetalleHabitacionComponent,
+    EventosComponent,
+    ServiciosComponent,
     InterfazComponent,
     EventosComponent,
     SearchHotelPipe,

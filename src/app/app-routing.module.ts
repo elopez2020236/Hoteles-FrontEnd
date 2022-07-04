@@ -8,6 +8,7 @@ import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { InterfazComponent } from './components/interfaz/interfaz.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
 import { SingUpGerenteComponent } from './components/sing-up-gerente/sing-up-gerente.component';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'interfaz', component: InterfazComponent},
   { path: 'sing-up-gerente', component: SingUpGerenteComponent},
   { path: 'eventos', component: EventosComponent},
+  { path: 'servicios', component: ServiciosComponent},
   { path: 'detalleHabitacion/:idHabitacion', component: DetalleHabitacionComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

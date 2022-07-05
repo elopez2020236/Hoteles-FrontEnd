@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Usuario } from '../models/usuario.model';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -15,8 +16,15 @@ export class UsuarioService {
   );
   public token;
   public identidad;
+  public sesionSubject: BehaviorSubject<any>;
+  public isAuthenticated: Observable<any>;
 
-  constructor(public _http: HttpClient) {}
+  constructor(public _http: HttpClient) {
+    var token = localStorage.getItem('token');
+
+    this.sesionSubject = new BehaviorSubject<any>(token);
+    this.isAuthenticated = this.sesionSubject.asObservable();
+  }
 
   obtenerUsuario(token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization', token);
@@ -34,7 +42,14 @@ export class UsuarioService {
 
     return this._http.post(this.url + '/login', params, {
       headers: this.headersVariable,
-    });
+    })
+    .pipe(map((res: any) => {
+      if (obtenerToken) {
+        this.sesionSubject.next(res.token);
+      }
+
+      return res;
+    }));
   }
 
   getToken() {
@@ -75,8 +90,7 @@ export class UsuarioService {
 
   clearToken() {
     localStorage.clear();
+
+    this.sesionSubject.next(null);
   }
-
-
-
 }

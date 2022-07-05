@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
@@ -6,17 +7,16 @@ import Swal from 'sweetalert2';
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  providers: [UsuarioService]
-
 })
 export class NavbarComponent implements OnInit {
-    public token: any;
+  public isAuthenticated: Observable<any>;
 
-    constructor(
-      public _usuarioService: UsuarioService) {
-        this.token = this._usuarioService.getToken();
+  constructor(public _usuarioService: UsuarioService) {
+    _usuarioService.isAuthenticated.subscribe(token => {
+      this.isAuthenticated = token;
+    });
+  }
 
-     }
   ngOnInit(): void {
   }
 

@@ -24,7 +24,6 @@ export class SignInComponent implements OnInit {
     return new Promise((resolve, reject) => {
       this._usuarioService.login(this.userModel, 'true').subscribe(
         (response) => {
-          localStorage.setItem('token', response.token);
           resolve(response);
         },
         (error) => {
@@ -38,10 +37,9 @@ export class SignInComponent implements OnInit {
     this._usuarioService.login(this.userModel).subscribe(
       (response) => {
         this.getTokenPromesa().then((respuesta) => {
-          localStorage.setItem('identidad', JSON.stringify(response.usuario));
-
           this._router.navigate(['/hoteles']);
         });
+
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',

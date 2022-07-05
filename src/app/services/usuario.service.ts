@@ -18,12 +18,18 @@ export class UsuarioService {
   public identidad;
   public sesionSubject: BehaviorSubject<any>;
   public isAuthenticated: Observable<any>;
+  public roleSubject: BehaviorSubject<any>;
+  public roleUpdated: Observable<any>;
 
   constructor(public _http: HttpClient) {
     var token = localStorage.getItem('token');
+    var identidad = localStorage.getItem('identidad');
+    var usuario = identidad ? JSON.parse(identidad) : null;
 
     this.sesionSubject = new BehaviorSubject<any>(token);
     this.isAuthenticated = this.sesionSubject.asObservable();
+    this.roleSubject = new BehaviorSubject<any>(usuario ? usuario.rol : null);
+    this.roleUpdated = this.roleSubject.asObservable();
   }
 
   obtenerUsuario(token): Observable<any> {
@@ -45,7 +51,13 @@ export class UsuarioService {
     })
     .pipe(map((res: any) => {
       if (obtenerToken) {
+        localStorage.setItem('token', res.token);
+
         this.sesionSubject.next(res.token);
+      } else {
+        localStorage.setItem('identidad', JSON.stringify(res.usuario));
+
+        this.roleSubject.next(res.usuario.rol);
       }
 
       return res;
@@ -92,5 +104,6 @@ export class UsuarioService {
     localStorage.clear();
 
     this.sesionSubject.next(null);
+    this.roleSubject.next(null);
   }
 }

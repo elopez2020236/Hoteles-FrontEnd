@@ -4,13 +4,13 @@
             <div class="text-center">
 
                 <input [(ngModel)]="searchHotel" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline" type="submit" >Search</button>
+                <button class="btn btn-outline" type="submit">Search</button>
 
             </div>
         </div>
     </div>
     <div class="mb-3">
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button *nfIf="role === 'ADMIN'" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
       <h6 class="text-center">Agregar hotel</h6>
     </button>
         <div class="row gx-5">
@@ -26,8 +26,8 @@
                         </div>
                         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                             <div class="d-flex align-items-end justify-content-between">
-                                <div class="d-grid"><a class="btn btn-outline-info" data-bs-toggle="offcanvas" aria-controls="offcanvasExample" data-bs-target="#offcanvasExample" (click)="getHotelesId(hot._id)">Editar</a></div>
-                                <div class="d-grid"><a class="btn btn-outline-danger" (click)="deleteHotel(hot._id)">Eliminar</a></div>
+                                <div *ngIf="role === 'ADMIN'" class="d-grid"><a class="btn btn-outline-info" data-bs-toggle="offcanvas" aria-controls="offcanvasExample" data-bs-target="#offcanvasExample" (click)="getHotelesId(hot._id)">Editar</a></div>
+                                <div *ngIf="role === 'ADMIN'" class="d-grid"><a class="btn btn-outline-danger" (click)="deleteHotel(hot._id)">Eliminar</a></div>
                                 <div class="d-grid"><a class="btn btn-outline-success" routerLink="/habitaciones">Habitaciones</a></div>
                             </div>
                         </div>

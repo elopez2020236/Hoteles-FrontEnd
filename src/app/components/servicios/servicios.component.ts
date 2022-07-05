@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Servicio } from 'src/app/models/servicio.model';
 import { ServicioService } from 'src/app/services/servicios.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,15 +17,21 @@ export class ServiciosComponent implements OnInit {
   public servicioModelGet: Servicio;
   public servicioModelPost: Servicio;
   public servicioModelGetId: Servicio;
+  public token;
+  public role: string;
 
-  constructor(private _serviciosService: ServicioService) {
-    this.servicioModelPost = new Servicio(
-      '',
-      '',
-      ''
-      );
+  constructor(
+    private _serviciosService: ServicioService,
+    private _usuarioService: UsuarioService
+    ) {
 
-      this.servicioModelGetId = new Servicio('', '', '');
+    this.servicioModelPost = new Servicio('','','');
+    this.servicioModelGetId = new Servicio('', '', '');
+    this.token = this._usuarioService.getToken();
+
+    _usuarioService.roleUpdated.subscribe(role => {
+      this.role = role;
+    });
   }
 
   ngOnInit(): void {

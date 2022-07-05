@@ -9,17 +9,17 @@
         </div>
     </div>
 
-    <!-- Button ir a Eventos -->
+    <!-- Button Regresar a habitaciones -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="btn btn-success me-md-2" type="button" routerLink="/habitaciones">Regresar a habitaciones</button>
     </div>
 
-    <!-- Button Agregar Modal -->
-    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarEvento">
-  Agregar un nuevo Evento
-  </button>
+    <!-- Button Agregar "Modal" -->
+    <button *ngIf="role === 'ADMIN'" type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarEvento">
+       Agregar un nuevo Evento
+    </button>
 
-    <!-- Cards Obtener Eventos -->
+    <!-- "Cards" Obtener Eventos -->
     <div class="row gx-5">
 
         <div class="col-lg-4 mb-5" *ngFor="let Even of eventosModelGet">
@@ -28,14 +28,16 @@
                 <div class="card-body p-4">
                     <h5 class="card-title mb-3">{{ Even.nombre }}</h5>
                     <p class="card-text mb-0">
-                        El evento se llevará a cabo el {{ Even.fecha }} a las {{ Even.hora }}y estarán presentes {{ Even.asistentes }} asistentes.
+                        El evento se llevará a cabo el {{ Even.fecha }} a las {{ Even.hora }}.
+                    </p>
+                    <p class="card-text mb-0">
+                        Estarán presentes {{ Even.asistentes }} asistentes.
                     </p>
                 </div>
-                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                <div *ngIf="role === 'ADMIN'" class="card-footer p-4 pt-0 bg-transparent border-top-0">
                     <div class="d-flex align-items-end justify-content-between">
                         <button type="button" class="btn btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" (click)="getEventoId(Even._id)">Editar</button>
                         <button type="button" class="btn btn-danger" (click)="deleteEvento(Even._id)">Eliminar</button>
-
                     </div>
                 </div>
             </div>
@@ -44,8 +46,7 @@
     </div>
 </div>
 
-
-<!-- Modal Agregar Evento -->
+<!-- "Modal" Agregar Evento -->
 <div class="modal fade" id="agregarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -93,9 +94,7 @@
     </div>
 </div>
 
-
-
-<!-- OffCanvas Editar Evento -->
+<!-- "OffCanvas" Editar Evento -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Editar Evento</h5>

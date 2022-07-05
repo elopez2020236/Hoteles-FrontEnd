@@ -9,17 +9,17 @@
         </div>
     </div>
 
-    <!-- Button ir a Eventos -->
+    <!-- Button Regresar a habitaciones -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="btn btn-success me-md-2" type="button" routerLink="/habitaciones">Regresar a habitaciones</button>
     </div>
 
-    <!-- Button Agregar Modal -->
-    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarServicio">
-    Agregar un nuevo Servicio
-  </button>
+    <!-- Button Agregar "Modal" -->
+    <button *ngIf="role === 'ADMIN'" type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarServicio">
+      Agregar un nuevo Servicio
+    </button>
 
-    <!-- Cards Obtener Habitaciones -->
+    <!-- "Cards" Obtener Servicios -->
     <div class="row gx-5">
 
         <div class="col-lg-4 mb-5" *ngFor="let Servi of servicioModelGet">
@@ -28,10 +28,10 @@
                 <div class="card-body p-4">
                     <h5 class="card-title mb-3">{{ Servi.nombreServicio }}</h5>
                     <p class="card-text mb-0">
-                        El costo de servicio es: {{ Servi.costoServicio }}.
+                        El costo de servicio es: {{ Servi.costoServicio }} Quetzales.
                     </p>
                 </div>
-                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                <div *ngIf="role === 'ADMIN'" class="card-footer p-4 pt-0 bg-transparent border-top-0">
                     <div class="d-flex align-items-end justify-content-between">
                         <button type="button" class="btn btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" (click)="getServicioId(Servi._id)">Editar</button>
                         <button type="button" class="btn btn-danger" (click)="deleteServicio(Servi._id)">Eliminar</button>
@@ -44,7 +44,7 @@
 </div>
 
 
-<!-- Modal Agregar Servicio -->
+<!-- "Modal" Agregar Servicio -->
 <div class="modal fade" id="agregarServicio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -85,7 +85,7 @@
 </div>
 
 
-<!-- OffCanvas Editar Servicio -->
+<!-- "OffCanvas" Editar Servicio -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Editar Servicio</h5>

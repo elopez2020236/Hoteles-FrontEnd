@@ -10,6 +10,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { SingUpGerenteComponent } from './components/sing-up-gerente/sing-up-gerente.component';
+import { GraficasComponent } from './components/graficas/graficas.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'sing-up-gerente', component: SingUpGerenteComponent},
   { path: 'eventos', component: EventosComponent},
   { path: 'servicios', component: ServiciosComponent},
+  { path: 'graficas', component: GraficasComponent},
   { path: 'detalleHabitacion/:idHabitacion', component: DetalleHabitacionComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

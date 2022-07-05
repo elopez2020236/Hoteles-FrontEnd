@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -16,6 +16,10 @@ import { EventosComponent } from './components/eventos/eventos.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { SearchHotelPipe } from './pipes/search-hotel.pipe';
 import { SingUpGerenteComponent } from './components/sing-up-gerente/sing-up-gerente.component';
+import { ChartsModule } from '@rinminase/ng-charts';
+import { GraficasComponent } from './components/graficas/graficas.component';
+import { UsuarioService } from './services/usuario.service';
+import { AuthTokenInterceptor } from './auth-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,8 @@ import { SingUpGerenteComponent } from './components/sing-up-gerente/sing-up-ger
     InterfazComponent,
     EventosComponent,
     SearchHotelPipe,
-    SingUpGerenteComponent
+    SingUpGerenteComponent,
+    GraficasComponent
   ],
 
   imports: [
@@ -40,9 +45,17 @@ import { SingUpGerenteComponent } from './components/sing-up-gerente/sing-up-ger
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule,
   ],
 
-  providers: [],
+  providers: [
+    UsuarioService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthTokenInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

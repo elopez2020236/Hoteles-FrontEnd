@@ -8,14 +8,16 @@ import Swal from 'sweetalert2';
   selector: 'app-hoteles',
   templateUrl: './hoteles.component.html',
   styleUrls: ['./hoteles.component.scss'],
-  providers: [HotelService, UsuarioService],
+  providers: [HotelService],
 })
 export class HotelesComponent implements OnInit {
   public hotelesModelPost: Hotel;
   public hotelesModelGetId: Hotel;
   public hotelesModelGet: Hotel;
   public token;
+  public role: string;
   public searchHotel;
+
   constructor(
     private _hotelService: HotelService,
     private _usuarioService: UsuarioService
@@ -23,6 +25,10 @@ export class HotelesComponent implements OnInit {
     this.hotelesModelPost = new Hotel('', '', '', '', '');
     this.hotelesModelGetId = new Hotel('', '', '', '', '');
     this.token = this._usuarioService.getToken();
+
+    _usuarioService.roleUpdated.subscribe(role => {
+      this.role = role;
+    });
   }
 
   ngOnInit(): void {

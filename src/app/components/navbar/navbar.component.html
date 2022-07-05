@@ -56,7 +56,7 @@
                 <form class="form-inline my-2 my-lg-0">
                     <button *ngIf="!isAuthenticated" class="btn" routerLink="sign-up">Registrarse</button>
 
-                    <button *ngIf="isAuthenticated" class="btn" routerLink="sing-up-gerente">RegistrarGerente</button>
+                    <button *ngIf="isAuthenticated && role === 'ADMIN'" class="btn" routerLink="sing-up-gerente">RegistrarGerente</button>
                     <button *ngIf="!isAuthenticated" class="btn" routerLink="sign-in">Login</button>
                     <button *ngIf="isAuthenticated" class="btn" routerLink="sign-in" (click)="VaciarToken()">Cerrar Sesión</button>
 

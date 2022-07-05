@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Habitaciones } from 'src/app/models/habitacion.models';
 import { HabitacionService } from 'src/app/services/habitacion.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,18 +17,21 @@ export class HabitacionesComponent implements OnInit {
   public habitacionModelGet: Habitaciones;
   public habitacionModelPost: Habitaciones;
   public habitacionModelGetId: Habitaciones;
+  public token;
+  public role: string;
 
-  constructor(private _habitacionService: HabitacionService) {
-    this.habitacionModelPost = new Habitaciones(
-      '',
-      '',
-      '',
-      '',
-      '',
-      ''
-      );
+  constructor(
+    private _habitacionService: HabitacionService,
+    private _usuarioService: UsuarioService
+    ) {
 
-      this.habitacionModelGetId = new Habitaciones('', '', '', '', '', '');
+    this.habitacionModelPost = new Habitaciones('','','','','','');
+    this.habitacionModelGetId = new Habitaciones('', '', '', '', '', '');
+    this.token = this._usuarioService.getToken();
+
+    _usuarioService.roleUpdated.subscribe(role => {
+      this.role = role;
+    });
   }
 
   ngOnInit(): void {

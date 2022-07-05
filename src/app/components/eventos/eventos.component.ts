@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Eventos } from 'src/app/models/eventos.models';
 import { EventosService } from 'src/app/services/eventos.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,19 +17,21 @@ export class EventosComponent implements OnInit {
   public eventosModelGet: Eventos;
   public eventosModelPost: Eventos;
   public eventosModelGetId: Eventos;
+  public token;
+  public role: string;
 
-  constructor(private _eventosService: EventosService) {
-    this.eventosModelPost = new Eventos(
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      ''
-      );
+  constructor(
+    private _eventosService: EventosService,
+    private _usuarioService: UsuarioService
+    ) {
 
-      this.eventosModelGetId = new Eventos('', '', '', '', '', '', '');
+    this.eventosModelPost = new Eventos('','','','','','','');
+    this.eventosModelGetId = new Eventos('', '', '', '', '', '', '');
+    this.token = this._usuarioService.getToken();
+
+    _usuarioService.roleUpdated.subscribe(role => {
+      this.role = role;
+    });
   }
 
   ngOnInit(): void {

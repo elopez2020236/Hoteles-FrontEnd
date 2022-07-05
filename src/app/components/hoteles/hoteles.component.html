@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="mb-3">
-        <button *nfIf="role === 'ADMIN'" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button *ngIf="role === 'ADMIN'" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
       <h6 class="text-center">Agregar hotel</h6>
     </button>
         <div class="row gx-5">

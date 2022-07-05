@@ -16,11 +16,11 @@
     </div>
 
     <!-- Button Agregar Modal -->
-    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarHabitacion">
+    <button *ngIf="role === 'ADMIN'" type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarHabitacion">
       Agregar una nueva Habitación
     </button>
 
-    <!-- Cards Obtener Habitaciones -->
+    <!-- "Cards" Obtener Habitaciones -->
     <div class="row gx-5">
 
         <div class="col-lg-4 mb-5" *ngFor="let hab of habitacionModelGet">
@@ -30,10 +30,13 @@
                     <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{ hab.numeroHabitacion }}</div>
                     <h5 class="card-title mb-3">{{ hab.tipoHabitacion }}</h5>
                     <p class="card-text mb-0">
-                        El número de habitación es {{ hab.numeroHabitacion }}. Su precio es de Q {{ hab.precio }}.00 por día, y se encuentra en el piso {{ hab.numeroPiso }}.
+                        El número de habitación es {{ hab.numeroHabitacion }}.
+                    </p>
+                    <p class="card-text mb-0">
+                        Su precio es de Q {{ hab.precio }}.00 por día, y se encuentra en el piso {{ hab.numeroPiso }}.
                     </p>
                 </div>
-                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                <div *ngIf="role === 'ADMIN'" class="card-footer p-4 pt-0 bg-transparent border-top-0">
                     <div class="d-flex align-items-end justify-content-between">
                         <button type="button" class="btn btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" (click)="getHabitacionId(hab._id)">Editar</button>
                         <button type="button" class="btn btn-danger" (click)="deleteHabitacion(hab._id)">Eliminar</button>
@@ -46,8 +49,7 @@
     </div>
 </div>
 
-
-<!-- Modal Agregar Habitacion -->
+<!-- "Modal" Agregar Habitacion -->
 <div class="modal fade" id="agregarHabitacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -95,8 +97,7 @@
     </div>
 </div>
 
-
-<!-- OffCanvas Editar Habitacion -->
+<!-- "OffCanvas" Editar Habitacion -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Editar Habitación</h5>

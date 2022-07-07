@@ -15,7 +15,7 @@
     </div>
 
     <!-- Button Agregar "Modal" -->
-    <button *ngIf="role === 'ADMIN'" type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarServicio">
+    <button *ngIf="role === 'Gerente'" type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarServicio">
       Agregar un nuevo Servicio
     </button>
 
@@ -31,7 +31,7 @@
                         El costo de servicio es: {{ Servi.costoServicio }} Quetzales.
                     </p>
                 </div>
-                <div *ngIf="role === 'ADMIN'" class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                <div *ngIf="role === 'Gerente'" class="card-footer p-4 pt-0 bg-transparent border-top-0">
                     <div class="d-flex align-items-end justify-content-between">
                         <button type="button" class="btn btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" (click)="getServicioId(Servi._id)">Editar</button>
                         <button type="button" class="btn btn-danger" (click)="deleteServicio(Servi._id)">Eliminar</button>

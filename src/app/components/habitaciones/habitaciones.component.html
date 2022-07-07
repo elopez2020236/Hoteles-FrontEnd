@@ -12,7 +12,7 @@
     <!-- Button ir a Eventos y Servicios -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="btn btn-success me-md-2" type="button" routerLink="/eventos">Visualización de Eventos</button>
-        <button class="btn btn-success" type="button" routerLink="/servicios">Visualización de Servicios</button>
+        <!--  <button class="btn btn-success" type="button" routerLink="/servicios">Visualización de Servicios</button> -->
     </div>
 
     <!-- Button Agregar Modal -->
@@ -40,12 +40,12 @@
                     <div class="d-flex align-items-end justify-content-between">
                         <button type="button" class="btn btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" (click)="getHabitacionId(hab._id)">Editar</button>
                         <button type="button" class="btn btn-danger" (click)="deleteHabitacion(hab._id)">Eliminar</button>
-                        <button  *ngIf="role === 'Usuario'" type="button" class="btn btn-success" [routerLink]=" ['/detalleHabitacion', hab._id]">Ver</button>
+                        <button *ngIf="role === 'Usuario'" type="button" class="btn btn-success" [routerLink]=" ['/detalleHabitacion', hab._id]">Ver</button>
                     </div>
                 </div>
+                <button class="btn btn-success" type="button" routerLink="/servicios">Servicios</button>
             </div>
         </div>
-
     </div>
 </div>
 

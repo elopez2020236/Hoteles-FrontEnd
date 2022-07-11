@@ -12,11 +12,11 @@
     <!-- Button ir a Eventos y Servicios -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="btn btn-success me-md-2" type="button" routerLink="/eventos">Visualización de Eventos</button>
-        <button class="btn btn-success" type="button" routerLink="/servicios">Visualización de Servicios</button>
+        <!--  <button class="btn btn-success" type="button" routerLink="/servicios">Visualización de Servicios</button> -->
     </div>
 
     <!-- Button Agregar Modal -->
-    <button *ngIf="role === 'ADMIN'" type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarHabitacion">
+    <button *ngIf="role === 'Gerente'" type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarHabitacion">
       Agregar una nueva Habitación
     </button>
 
@@ -36,16 +36,16 @@
                         Su precio es de Q {{ hab.precio }}.00 por día, y se encuentra en el piso {{ hab.numeroPiso }}.
                     </p>
                 </div>
-                <div *ngIf="role === 'ADMIN'" class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                <div *ngIf="role === 'Gerente'" class="card-footer p-4 pt-0 bg-transparent border-top-0">
                     <div class="d-flex align-items-end justify-content-between">
                         <button type="button" class="btn btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" (click)="getHabitacionId(hab._id)">Editar</button>
                         <button type="button" class="btn btn-danger" (click)="deleteHabitacion(hab._id)">Eliminar</button>
-                        <button type="button" class="btn btn-success" [routerLink]=" ['/detalleHabitacion', hab._id]">Ver</button>
+                        <button *ngIf="role === 'Usuario'" type="button" class="btn btn-success" [routerLink]=" ['/detalleHabitacion', hab._id]">Ver</button>
                     </div>
                 </div>
+                <button class="btn btn-success" type="button" routerLink="/servicios">Servicios</button>
             </div>
         </div>
-
     </div>
 </div>
 

@@ -52,6 +52,10 @@
                     <li class="nav-item">
                         <a class="nav-link" routerLink="hoteles">Hoteles</a>
                     </li>
+                    <li *ngIf="role === 'ADMIN'" class="nav-item">
+                      <a class="nav-link" routerLink="/graficas">Graficas</a>
+                  </li>
+                               
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <button *ngIf="!isAuthenticated" class="btn" routerLink="sign-up">Registrarse</button>

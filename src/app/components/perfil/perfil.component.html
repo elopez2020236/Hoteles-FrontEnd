@@ -10,16 +10,18 @@
             
             
             <div class="col-12">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getServicioId(us._id)">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getUsuarioId(us._id)">
                     Editar
                   </button>
                   
-              <button type="button" class="btn btn-danger">Eliminar</button>
-              <button type="button" class="btn btn-outline-secondary">Cuenta</button>
+              <button type="button" class="btn btn-danger" (click)="deleteUsuarios(us._id)">Eliminar</button>
+              
 
 
             </div>
     </div>
+
+    <button type="button" class="btn btn-outline-secondary" routerLink="/cuenta">Cuenta</button>
 
 
     <!-- Modal -->
@@ -43,7 +45,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" (click)="putUsuario()">Save changes</button>
         </div>
       </div>
     </div>

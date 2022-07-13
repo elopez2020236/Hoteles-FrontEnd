@@ -28,8 +28,8 @@ export class HotelesComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.hotelesModelPost = new Hotel('', '', '', '', '', [{}], [{}]);
-    this.hotelesModelGetId = new Hotel('', '', '', '', '', [{}], [{}]);
+    this.hotelesModelPost = new Hotel('', '', '', '', '', [{}], [{}], [{}]);
+    this.hotelesModelGetId = new Hotel('', '', '', '', '', [{}], [{}], [{}]);
     
 
     this.token = this._usuarioService.getToken();

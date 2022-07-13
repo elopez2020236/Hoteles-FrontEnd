@@ -16,6 +16,8 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { HabitacionComponent } from './components/habitacion/habitacion.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { CuentaComponent } from './components/cuenta/cuenta.component';
+import { ReservacionComponent } from './components/reservacion/reservacion.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -35,6 +37,8 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent},
   { path: 'loader', component: LoaderComponent},
   { path: 'perfil', component: PerfilComponent},
+  { path: 'cuenta', component: CuentaComponent},
+  { path: 'reservacion', component: ReservacionComponent},
   { path: 'detalleHabitacion/:id', component: DetalleHabitacionComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

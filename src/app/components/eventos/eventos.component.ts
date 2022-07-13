@@ -141,10 +141,11 @@ export class EventosComponent implements OnInit {
 
 
   putEvento() {
+    let idHotel = localStorage.getItem('idHotel');
     this._eventosService.editarEventos(this.eventosModelGetId).subscribe(
       (response) => {
         console.log(response);
-        this.getEventos();
+        this.getEventosIdH(idHotel);
       },
       (error) => {
         console.log(error);

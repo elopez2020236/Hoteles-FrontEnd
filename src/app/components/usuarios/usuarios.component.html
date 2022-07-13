@@ -1,0 +1,70 @@
+<div class="aa_htmlTable">
+  <h2 class="aa_h2">Usuarios</h2>
+  <button type="button32" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
+    Agregar Admin Hotel
+  </button>
+      <table class="table-fill">
+        <thead>
+        <tr>
+        <th class="text-left">Nombre</th>
+        <th class="text-left">Email</th>
+        </tr>
+        </thead>
+        <tbody class="table-hover">
+        <tr *ngFor="let us of usuarioModelGet">
+          <td>{{us.nombre}}</td>
+          <td>{{us.email}}</td>
+        </tr>
+  </table>
+</div>
+
+   <!--  Modal Agregar Admin Hotel -->
+   <div class="cajaa">
+    <div class="modal fade" id="agregarUsuarioModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"> Agregar Admin Hotel </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+
+            <form>
+              <div class="mg-3">
+                <label for="imputNombre" class="form-label"> Nombre </label>
+                <input class="form-control" id="name" type="text" placeholder="Ingresa tu nombre" name="nombre"
+                  #nombre="ngModel" [(ngModel)]="usuarioModelPost.nombre">
+              </div>
+                <div class="mg-3">
+                  <label for="imputNombre" class="form-label"> Email </label>
+                  <input type="text" id="imputNombre" class="form-control" name="email" #email="ngModel"
+                    [(ngModel)]="usuarioModelPost.email">
+                </div>
+              <div class="mg-3">
+                <label for="imputDescripcion" class="form-label"> Contraseña </label>
+                <input type="text" id="imputDescripcion" class="form-control" name="password"
+                  #password="ngModel" [(ngModel)]="usuarioModelPost.password">
+              </div>
+
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" (click)="postGerente()">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container22">
+
+    <app-graficas></app-graficas>
+
+  </div>

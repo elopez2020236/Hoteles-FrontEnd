@@ -5,6 +5,8 @@ export class Habitaciones {
     public tipoHabitacion: String,
     public numeroPiso: String,
     public precio: String,
-    public idHoteles: String
+    public idHoteles: {},
+    public estado:Boolean,
+    public numeroDias:Number
   ) {}
 }

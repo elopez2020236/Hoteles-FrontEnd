@@ -55,12 +55,15 @@
                     <li *ngIf="role === 'ADMIN'" class="nav-item">
                       <a class="nav-link" routerLink="/graficas">Graficas</a>
                   </li>
+                  <li *ngIf="role === 'ADMIN'" class="nav-item">
+                    <a class="nav-link" routerLink="usuarios">Ver Usuarios</a>
+                </li>
                                
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
+                  <button *ngIf="role ==='Usuario'" class="btn" routerLink="perfil">Perfil</button>
+                  <button *ngIf="role ==='Gerente'" class="btn" routerLink="admin">Administrar Hotel</button>
                     <button *ngIf="!isAuthenticated" class="btn" routerLink="sign-up">Registrarse</button>
-
-                    <button *ngIf="isAuthenticated && role === 'ADMIN'" class="btn" routerLink="sing-up-gerente">RegistrarGerente</button>
                     <button *ngIf="!isAuthenticated" class="btn" routerLink="sign-in">Login</button>
                     <button *ngIf="isAuthenticated" class="btn" routerLink="sign-in" (click)="VaciarToken()">Cerrar Sesión</button>
 

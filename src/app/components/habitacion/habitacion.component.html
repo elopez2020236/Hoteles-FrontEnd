@@ -3,7 +3,7 @@
     <div class="row gx-5 justify-content-center">
         <div class="col-lg-8 col-xl-6">
             <div class="text-center">
-                <h2 class="fw-bolder">Conoce a todas las habitaciones</h2>
+                <h2 class="fw-bolder">Nugget Marica</h2>
                 <p class="lead fw-normal text-muted mb-5">Mantente al día y conoce todas las habitaciones disponibles</p>
             </div>
         </div>
@@ -14,7 +14,7 @@
         <button class="btn btn-success me-md-2" type="button" routerLink="/eventos">Visualización de Eventos</button>
         <!--  <button class="btn btn-success" type="button" routerLink="/servicios">Visualización de Servicios</button> -->
     </div>
-    <button class="btn btn-success" type="button" routerLink="/servicios">Servicios</button>
+
     <!-- Button Agregar Modal -->
     <button *ngIf="role === 'Gerente'" type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarHabitacion">
       Agregar una nueva Habitación
@@ -37,16 +37,14 @@
                         Su precio es de Q {{ hab.precio }}.00 por día, y se encuentra en el piso {{ hab.numeroPiso }}.
                     </p>
                 </div>
-                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                <div *ngIf="role === 'Gerente'" class="card-footer p-4 pt-0 bg-transparent border-top-0">
                     <div class="d-flex align-items-end justify-content-between">
-                        <button *ngIf="role === 'Gerente'" type="button" class="btn btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" (click)="getHabitacionId(hab._id)">Editar</button>
-                        <button *ngIf="role === 'Usuario'" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getHabitacionId(hab._id)">
-                            Reserva
-                          </button>
-                        <!--<button type="button" class="btn btn-warning" data-bs-toggle="offcanva" data-bs-target="#offcanvaExample" aria-controls="offcanvaExample" (click)="getHabitacionId(hab._id)">Reservar</button>-->
-                        <button *ngIf="role === 'Gerente'" type="button" class="btn btn-danger" (click)="deleteHabitacion(hab._id)">Eliminar</button>
+                        <button type="button" class="btn btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" (click)="getHabitacionId(hab._id)">Editar</button>
+                        <button type="button" class="btn btn-danger" (click)="deleteHabitacion(hab._id)">Eliminar</button>
+                        <button *ngIf="role === 'Usuario'"type="button" class="btn btn-danger" (click)="deleteHabitacion(hab._id)">Eliminar</button>
                     </div>
                 </div>
+                <button class="btn btn-success" type="button" routerLink="/servicios">Servicios</button>
             </div>
         </div>
     </div>
@@ -94,50 +92,6 @@
         </div>
     </div>
 </div>
-
-<!-- "OffCanvas" Agregar Reserva 
-<div class="offcanva offcanva-start" tabindex="-1" id="offcanvaExample" aria-labelledby="offcanvaExampleLabel">
-    <div class="offcanva-header">
-        <h5 class="offcanva-title" id="offcanvaExampleLabel">Agregar Reserva</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanva" aria-label="Close"></button>
-    </div>
-    <div class="offcanva-body">
-        <form>
-            <div class="mb-3">
-                <label for="inputnumeroDias" class="form-label">Numero Días</label>
-                <input type="text" class="form-control" id="inputnumeroDias" name="numeroDias" #numeroDias="ngModel" [(ngModel)]="habitacionModelPost.numeroDias">
-            </div>
-            
-            <button type="submit" class="btn btn-success" (click)="postReservacion()" data-bs-dismiss="offcanvas">Agregar Reservacion</button>
-        </form>
-    </div>
-</div>-->
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar Reserva</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div class="mb-3">
-                <label for="numeroDias" class="form-label">Numero Días</label>
-                <input type="text" class="form-control" id="numeroDias" name="numeroDias" #numeroDias="ngModel" [(ngModel)]="reservacionModelPost.numeroDias">
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="postReservacion()">Reservar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
 
 <!-- "OffCanvas" Editar Habitacion -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">

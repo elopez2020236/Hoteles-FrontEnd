@@ -14,7 +14,7 @@ export class SignUpComponent implements OnInit {
   public token;
 
   constructor(private _usuarioService: UsuarioService, public _router: Router) {
-    this.usuarioModelPost = new Usuario('', '', '', '', '', '', '');
+    this.usuarioModelPost = new Usuario('', '', '', '', '', '', '', [{}]);
   }
 
   ngOnInit(): void {}

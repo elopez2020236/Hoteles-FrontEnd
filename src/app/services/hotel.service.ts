@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { Hotel } from '../models/hotel.model';
 
 
@@ -24,12 +25,21 @@ export class HotelService {
       headers: this.headersVariable,
     });
   }
+  
   obtenerHotelesId(idHotel, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization', token);
     return this._http.get(this.url + '/verHotelesId/' + idHotel, {
       headers: headersToken,
     });
   }
+
+  obtenerHotelesG(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/obtenerHotelxGerente', {
+      headers: this.headersVariable,
+    });
+  }
+
   agregarHoteles(modeloHoteles: Hotel, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization', token);
     let parametros = JSON.stringify(modeloHoteles);
@@ -38,6 +48,7 @@ export class HotelService {
       headers: headersToken,
     });
   }
+
   editarHoteles(modeloHoteles: Hotel, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization', token);
     let parametros = JSON.stringify(modeloHoteles);
@@ -49,6 +60,7 @@ export class HotelService {
       }
     );
   }
+
   eliminarHoteles(idHotel, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization', token);
     return this._http.delete(this.url + '/eliminarHotel/' + idHotel, {

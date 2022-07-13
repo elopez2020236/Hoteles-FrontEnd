@@ -1,0 +1,28 @@
+:host{ 
+    display: block;
+}
+
+.container {
+    .loader{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        background-image: url(^assets/img/Spinner-1s-200px.gif);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.btn {
+    justify-content: center;
+    align-items: center;
+    margin-top: 40%;
+    font-size: 1.3rem;
+  }

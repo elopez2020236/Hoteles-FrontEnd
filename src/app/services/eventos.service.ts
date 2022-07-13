@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { Eventos } from '../models/eventos.models';
 
 @Injectable({
@@ -20,13 +21,18 @@ export class EventosService {
   obtenerEventoId(idEvento): Observable<any> {
     return this._http.get(this.url + '/evento/' + idEvento, { headers: this.headersVariable });
   }
+  
+  obtenerEventoIdH(idHotel): Observable<any> {
+    return this._http.get(this.url + '/obtenerEventosxhotel/' + idHotel, { headers: this.headersVariable }).pipe(
+      delay(250)
+    );
+  }
 
-
-  agregarEvento(modeloEvento: Eventos): Observable<any> {
+  agregarEvento(idHotel, modeloEvento: Eventos): Observable<any> {
 
     let parametros = JSON.stringify(modeloEvento);
 
-    return this._http.post(this.url + '/agregarEvento', parametros, { headers: this.headersVariable});
+    return this._http.post(this.url + '/agregarEvento/' + idHotel, parametros, { headers: this.headersVariable});
   }
 
 

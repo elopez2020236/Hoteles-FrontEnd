@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Hotel } from 'src/app/models/hotel.model';
 import { Usuario } from 'src/app/models/usuario.model';
 import { HotelService } from 'src/app/services/hotel.service';
@@ -7,12 +7,12 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-hoteles',
-  templateUrl: './hoteles.component.html',
-  styleUrls: ['./hoteles.component.scss'],
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss'],
   providers: [HotelService],
 })
-export class HotelesComponent implements OnInit {
+export class AdminComponent implements OnInit {
   public hotelesModelPost: Hotel;
   public hotelesModelGetId: Hotel;
   public hotelesModelGet: Hotel;
@@ -20,18 +20,18 @@ export class HotelesComponent implements OnInit {
   public token;
   public role: string;
   public searchHotel;
-  public id;
+  public filtro;
+  public idHotel;
 
   constructor(
+    public _activeRoute: ActivatedRoute,
     private _hotelService: HotelService,
-    private _usuarioService: UsuarioService,
-    private router: Router,
-    private route: ActivatedRoute
+    private _usuarioService: UsuarioService
   ) {
     this.hotelesModelPost = new Hotel('', '', '', '', '', [{}], [{}]);
     this.hotelesModelGetId = new Hotel('', '', '', '', '', [{}], [{}]);
+    this.usuarioModelGetId = new Usuario('','','','','','','',[{}]);
     
-
     this.token = this._usuarioService.getToken();
 
     _usuarioService.roleUpdated.subscribe(role => {
@@ -40,15 +40,13 @@ export class HotelesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let idHotel = localStorage.getItem('idHotel');
-    localStorage.setItem("idHotel", idHotel);
     this.obtenerHoteles();
   }
 
   obtenerHoteles() {
-    this._hotelService.obtenerHoteles(this.token).subscribe(
+    this._hotelService.obtenerHotelesG(this.token).subscribe(
       (response) => {
-        this.hotelesModelGet = response.hotel;
+        this.hotelesModelGet = response.hoteles;
         console.log(response);
       },
       (error) => {
@@ -62,7 +60,7 @@ export class HotelesComponent implements OnInit {
       (response) => {
         console.log(response);
         localStorage.setItem("idHotel", idHotel);
-        this.hotelesModelGetId = response.hotel;
+        this.hotelesModelGetId = response.hotel
       },
       (error) => {}
     );
@@ -115,6 +113,7 @@ export class HotelesComponent implements OnInit {
         }
       );
   }
+
   putHoteles() {
     this._hotelService
       .editarHoteles(this.hotelesModelGetId, this.token)
@@ -203,49 +202,4 @@ export class HotelesComponent implements OnInit {
       }
     });
   }
-
-
-
-  // deleteHotel(id) {
-  //   this._hotelService.eliminarHoteles(id, this.token).subscribe(
-  //     (response) => {
-  //       console.log(response);
-  //       this.obtenerHoteles();
-  //       const Toast = Swal.mixin({
-  //         toast: true,
-  //         position: 'top-end',
-  //         showConfirmButton: false,
-  //         timer: 3000,
-  //         timerProgressBar: true,
-  //         didOpen: (toast) => {
-  //           toast.addEventListener('mouseenter', Swal.stopTimer);
-  //           toast.addEventListener('mouseleave', Swal.resumeTimer);
-  //         },
-  //       });
-
-  //       Toast.fire({
-  //         icon: 'success',
-  //         title: 'Hotel eliminado correctamente',
-  //       });
-  //     },
-  //     (error) => {
-  //       const Toast = Swal.mixin({
-  //         toast: true,
-  //         position: 'top-end',
-  //         showConfirmButton: false,
-  //         timer: 3000,
-  //         timerProgressBar: true,
-  //         didOpen: (toast) => {
-  //           toast.addEventListener('mouseenter', Swal.stopTimer);
-  //           toast.addEventListener('mouseleave', Swal.resumeTimer);
-  //         },
-  //       });
-
-  //       Toast.fire({
-  //         icon: 'error',
-  //         title: error.error.mensaje,
-  //       });
-  //     }
-  //   );
-  // }
 }

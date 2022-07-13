@@ -62,7 +62,7 @@ export class PerfilComponent implements OnInit {
     )
   }
 
-  deleteServicio(id) {
+  deleteUsuario(id) {
     this.sUsuario.eliminarUsuario(id).subscribe(
       (response) => {
         console.log(response);
@@ -83,7 +83,7 @@ export class PerfilComponent implements OnInit {
     )
   }
 
-  putServicio() {
+  putUsuario() {
     this.sUsuario.editarUsuario(this.perfilModelGetId).subscribe(
       (response) => {
         console.log(response);

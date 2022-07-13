@@ -27,6 +27,7 @@ import { FiltroPipe } from './pipes/filtro.pipe';
 import { LoaderComponent } from './components/loader/loader.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ReservacionComponent } from './components/reservacion/reservacion.component';
+import { CuentaComponent } from './components/cuenta/cuenta.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ReservacionComponent } from './components/reservacion/reservacion.compo
     FiltroPipe,
     LoaderComponent,
     PerfilComponent,
-    ReservacionComponent
+    ReservacionComponent,
+    CuentaComponent
   ],
 
   imports: [

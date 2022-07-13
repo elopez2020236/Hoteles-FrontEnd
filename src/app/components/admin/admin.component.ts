@@ -28,8 +28,8 @@ export class AdminComponent implements OnInit {
     private _hotelService: HotelService,
     private _usuarioService: UsuarioService
   ) {
-    this.hotelesModelPost = new Hotel('', '', '', '', '', [{}], [{}]);
-    this.hotelesModelGetId = new Hotel('', '', '', '', '', [{}], [{}]);
+    this.hotelesModelPost = new Hotel('', '', '', '', '', [{}], [{}], [{}]);
+    this.hotelesModelGetId = new Hotel('', '', '', '', '', [{}], [{}], [{}]);
     this.usuarioModelGetId = new Usuario('','','','','','','',[{}]);
     
     this.token = this._usuarioService.getToken();

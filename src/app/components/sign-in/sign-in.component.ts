@@ -15,7 +15,7 @@ export class SignInComponent implements OnInit {
     private _usuarioService: UsuarioService,
     private _router: Router
   ) {
-    this.userModel = new Usuario('', '', '', '', '', '', '');
+    this.userModel = new Usuario('', '', '', '', '', '', '', [{}]);
   }
 
   ngOnInit(): void {}

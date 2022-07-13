@@ -4,6 +4,8 @@ export class Hotel {
     public nombre: String,
     public direccion: String,
     public telefono: String,
-    public idGerente: String
+    public idGerente: {},
+    public Habitaciones: [{}],
+    public Servios:[{}]
   ) {}
 }

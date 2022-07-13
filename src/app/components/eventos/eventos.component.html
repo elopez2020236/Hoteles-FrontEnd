@@ -22,16 +22,13 @@
     <!-- "Cards" Obtener Eventos -->
     <div class="row gx-5">
 
-        <div class="col-lg-4 mb-5" *ngFor="let Even of eventosModelGet">
+        <div class="col-lg-4 mb-5" *ngFor="let Even of eventosModelGetIdH">
             <div class="card h-100 shadow border-0">
                 <img class="card-img-top" src="https://www.hotel-casablanca.com.mx/cache/db/6f/db6ff21221221e0ad360e107ce0c8308.jpg" alt="...">
                 <div class="card-body p-4">
                     <h5 class="card-title mb-3">{{ Even.nombre }}</h5>
                     <p class="card-text mb-0">
                         El evento se llevará a cabo el {{ Even.fecha }} a las {{ Even.hora }}.
-                    </p>
-                    <p class="card-text mb-0">
-                        Estarán presentes {{ Even.asistentes }} asistentes.
                     </p>
                 </div>
                 <div *ngIf="role === 'Gerente'" class="card-footer p-4 pt-0 bg-transparent border-top-0">
@@ -69,19 +66,6 @@
                         <label for="inputFecha" class="form-label ">Fecha de Evento</label>
                         <input type="text " id="inputFecha" class="form-control " name="fecha" #fecha="ngModel" [(ngModel)]="eventosModelPost.fecha">
                     </div>
-                    <div class="mg-3 ">
-                        <label for="inputAsistente" class="form-label ">Asistentes</label>
-                        <input type="text " id="inputAsistente" class="form-control " name="asistentes" #asistentes="ngModel" [(ngModel)]="eventosModelPost.asistentes">
-                    </div>
-
-                    <div class="mg-3 ">
-                        <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                    </div>
 
                 </form>
 
@@ -113,10 +97,6 @@
             <div class=" mg-3 ">
                 <label for="inputFecha" class="form-label ">Fecha de Evento</label>
                 <input type="text " id="inputFecha" class="form-control " name="fecha" #fecha="ngModel" [(ngModel)]="eventosModelGetId.fecha">
-            </div>
-            <div class="mg-3 ">
-                <label for="inputAsistente" class="form-label ">Asistentes</label>
-                <input type="text " id="inputAsistente" class="form-control " name="asistentes" #asistentes="ngModel" [(ngModel)]="eventosModelGetId.asistentes">
             </div>
 
             <button type="submit" class="btn btn-success" (click)="putEvento()" data-bs-dismiss="offcanvas">Guardar Cambios</button>

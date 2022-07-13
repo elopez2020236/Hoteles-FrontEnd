@@ -22,7 +22,7 @@
     <!-- "Cards" Obtener Servicios -->
     <div class="row gx-5">
 
-        <div class="col-lg-4 mb-5" *ngFor="let Servi of servicioModelGet">
+        <div class="col-lg-4 mb-5" *ngFor="let Servi of servicioModelGetIdH">
             <div class="card h-100 shadow border-0">
                 <img class="card-img-top" src="https://i0.wp.com/www.lugarnia.com/wp-content/uploads/2019/02/utilizar-el-servicio-de-habitaciones-e1550783123726.jpg?fit=1000%2C666&ssl=1" alt="...">
                 <div class="card-body p-4">
@@ -78,7 +78,7 @@
             </div>
             <div class="modal-footer ">
                 <button type="button " class="btn btn-secondary " data-bs-dismiss="modal">Cancelar</button>
-                <button type="button " class="btn btn-primary " data-bs-dismiss="modal" (click)="postSetvicio()">Agregar</button>
+                <button type="button " class="btn btn-primary " data-bs-dismiss="modal" (click)="postServicio()">Agregar</button>
             </div>
         </div>
     </div>

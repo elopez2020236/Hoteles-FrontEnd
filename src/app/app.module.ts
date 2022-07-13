@@ -20,6 +20,13 @@ import { ChartsModule } from '@rinminase/ng-charts';
 import { GraficasComponent } from './components/graficas/graficas.component';
 import { UsuarioService } from './services/usuario.service';
 import { AuthTokenInterceptor } from './auth-token.interceptor';
+import { AdminComponent } from './components/admin/admin.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { HabitacionComponent } from './components/habitacion/habitacion.component';
+import { FiltroPipe } from './pipes/filtro.pipe';
+import { LoaderComponent } from './components/loader/loader.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { ReservacionComponent } from './components/reservacion/reservacion.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +44,14 @@ import { AuthTokenInterceptor } from './auth-token.interceptor';
     EventosComponent,
     SearchHotelPipe,
     SingUpGerenteComponent,
-    GraficasComponent
+    GraficasComponent,
+    AdminComponent,
+    UsuariosComponent,
+    HabitacionComponent,
+    FiltroPipe,
+    LoaderComponent,
+    PerfilComponent,
+    ReservacionComponent
   ],
 
   imports: [

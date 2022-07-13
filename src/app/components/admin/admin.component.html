@@ -3,14 +3,6 @@
         <div class="col-lg-8 col-xl-6">
             <div class="text-center">
 
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-6">
-                        <div class="text-center">
-                            <h2 class="fw-bolder">Realiza una</h2>
-                        </div>
-                    </div>
-                </div>
-                <input [(ngModel)]="searchHotel" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <br>
                 <br>
                 <br>
@@ -18,13 +10,14 @@
             </div>
         </div>
     </div>
+
     <div class="mb-3">
-        <button *ngIf="role === 'ADMIN'" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button *ngIf="role === 'Gerente'" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
       <h6 class="text-center">Agregar hotel</h6>
     </button>
         <div class="row gx-5">
             <div class="row gx-5">
-                <div class="col-lg-4 mb-5" *ngFor="let hot of hotelesModelGet | searchHotel:searchHotel">
+                <div class="col-lg-4 mb-5" *ngFor="let hot of hotelesModelGet ">
                     <div class="card h-100 shadow border-0">
                         <img class="card-img-top" src="https://www.preferente.com/wp-content/uploads/2021/04/hotel-1280x720.jpg" alt="...">
                         <div class="card-body p-4">
@@ -35,8 +28,8 @@
                         </div>
                         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                             <div class="d-flex align-items-end justify-content-between">
-                                <div *ngIf="role === 'ADMIN'" class="d-grid"><a class="btn btn-outline-info" data-bs-toggle="offcanvas" aria-controls="offcanvasExample" data-bs-target="#offcanvasExample" (click)="getHotelesId(hot._id)">Editar</a></div>
-                                <div *ngIf="role === 'ADMIN'" class="d-grid"><a class="btn btn-outline-danger" (click)="deleteHotel(hot._id)">Eliminar</a></div>
+                                <div *ngIf="role === 'Gerente'" class="d-grid"><a class="btn btn-outline-info" data-bs-toggle="offcanvas" aria-controls="offcanvasExample" data-bs-target="#offcanvasExample" (click)="getHotelesId(hot._id)">Editar</a></div>
+                                <div *ngIf="role === 'Gerente'" class="d-grid"><a class="btn btn-outline-danger" (click)="deleteHotel(hot._id)">Eliminar</a></div>
                                 <div class="d-grid"><a class="btn btn-outline-success" routerLink="/loader" (click)="getHotelesId(hot._id)">Habitaciones</a></div>
                             </div>
                         </div>

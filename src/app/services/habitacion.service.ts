@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { Habitaciones } from '../models/habitacion.models';
 
 @Injectable({
@@ -21,12 +22,17 @@ export class HabitacionService {
     return this._http.get(this.url + '/habitacion/' + idHabitacion, { headers: this.headersVariable });
   }
 
+  obtenerHabitacionIdH(idHotel): Observable<any> {
+    return this._http.get(this.url + '/ObtnernerHabitacionesxHotel/' + idHotel, { headers: this.headersVariable }).pipe(
+      delay(250)
+    );
+  }
 
-  agregarHabitacion(modeloHabitacion: Habitaciones): Observable<any> {
+  agregarHabitacion(idHotel, modeloHabitacion: Habitaciones): Observable<any> {
 
     let parametros = JSON.stringify(modeloHabitacion);
 
-    return this._http.post(this.url + '/agregarHabitacion', parametros, { headers: this.headersVariable});
+    return this._http.post(this.url + '/agregarHabitacion/' + idHotel, parametros, { headers: this.headersVariable});
   }
 
 

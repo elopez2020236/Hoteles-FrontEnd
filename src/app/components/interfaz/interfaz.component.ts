@@ -17,8 +17,8 @@ export class InterfazComponent implements OnInit {
   constructor(
     private _usuarioService: UsuarioService
   ) {
-    this.UsuarioModelPost = new Usuario('', '', '', '', '','','');
-    this.UsuarioModelGetId = new Usuario('', '', '', '', '','','');
+    this.UsuarioModelPost = new Usuario('', '', '', '', '','','',[{}]);
+    this.UsuarioModelGetId = new Usuario('', '', '', '', '','','',[{}]);
     this.token = this._usuarioService.getToken();
   }
   ngOnInit(): void {

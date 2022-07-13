@@ -17,8 +17,10 @@ export class ServiciosComponent implements OnInit {
   public servicioModelGet: Servicio;
   public servicioModelPost: Servicio;
   public servicioModelGetId: Servicio;
+  public servicioModelGetIdH: Servicio;
   public token;
   public role: string;
+  idHotel;
 
   constructor(
     private _serviciosService: ServicioService,
@@ -27,6 +29,8 @@ export class ServiciosComponent implements OnInit {
 
     this.servicioModelPost = new Servicio('','','');
     this.servicioModelGetId = new Servicio('', '', '');
+    this.servicioModelGetIdH = new Servicio('', '', '');
+    
     this.token = this._usuarioService.getToken();
 
     _usuarioService.roleUpdated.subscribe(role => {
@@ -35,8 +39,9 @@ export class ServiciosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Hola Mundo');
-    this.getServicios();
+    console.log(localStorage.getItem('idHotel'));
+    let idHotel = localStorage.getItem('idHotel');
+    this.getServiceIdH(idHotel);
   }
 
   getServicios() {
@@ -51,11 +56,25 @@ export class ServiciosComponent implements OnInit {
     )
   }
 
-  postSetvicio() {
-    this._serviciosService.agregarServicio(this.servicioModelPost).subscribe(
+  getServiceIdH(idHotel){
+    this._serviciosService.obtenerServiceIdH(idHotel).subscribe(
       (response) => {
         console.log(response);
-        this.getServicios();
+        this.servicioModelGetIdH = response.arratser;
+      },
+      (error) => { 
+
+      }
+
+    )
+  }
+
+  postServicio() {
+    let idHotel = localStorage.getItem('idHotel');
+    this._serviciosService.agregarServicio(idHotel, this.servicioModelPost).subscribe(
+      (response) => {
+        console.log(response);
+        this.getServiceIdH(idHotel);
 
         this.servicioModelPost.nombreServicio = '';
         this.servicioModelPost.costoServicio = '';
@@ -86,10 +105,11 @@ export class ServiciosComponent implements OnInit {
   }
 
   deleteServicio(id) {
+    let idHotel = localStorage.getItem('idHotel');
     this._serviciosService.eliminarServicio(id).subscribe(
       (response) => {
         console.log(response);
-        this.getServicios();
+        this.getServiceIdH(idHotel);
 
         //Alert
         Swal.fire({
@@ -121,10 +141,11 @@ export class ServiciosComponent implements OnInit {
 
 
   putServicio() {
+    let idHotel = localStorage.getItem('idHotel');
     this._serviciosService.editarServicio(this.servicioModelGetId).subscribe(
       (response) => {
         console.log(response);
-        this.getServicios();
+        this.getServiceIdH(idHotel);
       },
       (error) => {
         console.log(error);

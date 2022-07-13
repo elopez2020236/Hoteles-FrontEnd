@@ -17,6 +17,7 @@ export class EventosComponent implements OnInit {
   public eventosModelGet: Eventos;
   public eventosModelPost: Eventos;
   public eventosModelGetId: Eventos;
+  public eventosModelGetIdH: Eventos;
   public token;
   public role: string;
 
@@ -25,8 +26,9 @@ export class EventosComponent implements OnInit {
     private _usuarioService: UsuarioService
     ) {
 
-    this.eventosModelPost = new Eventos('','','','','','','');
-    this.eventosModelGetId = new Eventos('', '', '', '', '', '', '');
+    this.eventosModelPost = new Eventos('','','','',{});
+    this.eventosModelGetId = new Eventos('','','','',{});
+    this.eventosModelGetIdH = new Eventos('','','','',{});
     this.token = this._usuarioService.getToken();
 
     _usuarioService.roleUpdated.subscribe(role => {
@@ -35,8 +37,9 @@ export class EventosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Hola Mundo');
-    this.getEventos();
+    console.log(localStorage.getItem('idHotel'));
+    let idHotel = localStorage.getItem('idHotel');
+    this.getEventosIdH(idHotel);
   }
 
   getEventos() {
@@ -51,18 +54,29 @@ export class EventosComponent implements OnInit {
     )
   }
 
-  postEventos() {
-    this._eventosService.agregarEvento(this.eventosModelPost).subscribe(
+  getEventosIdH(idHotel){
+    this._eventosService.obtenerEventoIdH(idHotel).subscribe(
       (response) => {
         console.log(response);
-        this.getEventos();
+        this.eventosModelGetIdH = response.Eventos;
+      },
+      (error) => { 
+
+      }
+
+    )
+  }
+
+  postEventos() {
+    let idHotel = localStorage.getItem('idHotel');
+    this._eventosService.agregarEvento(idHotel, this.eventosModelPost).subscribe(
+      (response) => {
+        console.log(response);
+        this.getEventosIdH(idHotel);
 
         this.eventosModelPost.nombre = '';
         this.eventosModelPost.hora = '';
         this.eventosModelPost.fecha = '';
-        this.eventosModelPost.asistentes = '';
-        //this.eventosModelPost.hotel = '';
-        //this.eventosModelPost.typeEvent = '';
 
         //Alert
         Swal.fire({
@@ -90,10 +104,11 @@ export class EventosComponent implements OnInit {
   }
 
   deleteEvento(id) {
+    let idHotel = localStorage.getItem('idHotel');
     this._eventosService.eliminarEvento(id).subscribe(
       (response) => {
         console.log(response);
-        this.getEventos();
+        this.getEventosIdH(idHotel);
 
         //Alert
         Swal.fire({

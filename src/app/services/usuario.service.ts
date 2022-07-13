@@ -34,7 +34,7 @@ export class UsuarioService {
 
   obtenerUsuario(token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization', token);
-    return this._http.get(this.url + '/verUsuario', {
+    return this._http.get(this.url + '/obtenerUsuarios', {
       headers: this.headersVariable,
     });
   }
@@ -93,11 +93,32 @@ export class UsuarioService {
     });
   }
 
+  usuarioLogeado(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/obtenerUsuarioslog', {
+      headers: this.headersVariable,
+    });
+  }
+
   registrarGerente(modelUser: Usuario): Observable<any> {
     let parametros = JSON.stringify(modelUser);
     return this._http.post(this.url + '/crearGerente', parametros, {
       headers: this.headersVariable,
     });
+  }
+
+  obtenerUsuarioId(idUsuario): Observable<any> {
+    return this._http.get(this.url + '/obtenerUsuarioId/' + idUsuario, { headers: this.headersVariable });
+  }
+
+  editarUsuario(modeloEvento: Usuario): Observable<any> {
+    let parametro = JSON.stringify(modeloEvento);
+
+    return this._http.put(this.url + '/editarUsuario/' + modeloEvento._id, parametro, { headers: this.headersVariable})
+  }
+
+  eliminarUsuario(idUsuario): Observable<any> {
+    return this._http.delete(this.url + '/eliminarUsuario' + idUsuario, { headers: this.headersVariable});
   }
 
   clearToken() {

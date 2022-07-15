@@ -1,51 +1,55 @@
 <body>
-    <div class="usuario" >
-       
-            <div class="col-md-6">
-                <h5 class="card-title mb-3">{{perfilModelGet.nombre}}</h5>
-            </div>
-            <div class="col-12">
-                <h5 class="card-title mb-3">{{perfilModelGet.email}}</h5>
-            </div>
-            
-            
-            <div class="col-12">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getUsuarioId(perfilModelGet._id)">
-                    Editar
-                  </button>
-                  
-              <button type="button" class="btn btn-danger" (click)="deleteUsuario(perfilModelGet._id)">Eliminar</button>
-            </div>
-    </div>
 
-    <button type="button" class="btn btn-outline-secondary" routerLink="/cuenta">Cuenta</button>
-
-
-    <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div class="mg-3">
-                <label for="inputName" class="form-label">Nombre del servicio</label>
-                <input type="text" id="inputName" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="perfilModelGetId.nombre">
-            </div>
-            <div class="mg-3">
-                <label for="inputName" class="form-label">Nombre del servicio</label>
-                <input type="text" id="inputName" class="form-control" name="email" #email="ngModel" [(ngModel)]="perfilModelGetId.email">
-            </div>
-            
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="putUsuario()">Save changes</button>
+  <aside class="profile-card">
+  
+    <header>
+      <a href="http://ali.shahab.pk">
+        <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_206976.png&f=1&nofb=1">
+      </a>
+      <h1>{{perfilModelGet.nombre}}</h1>
+      <h2>{{perfilModelGet.email}}</h2>
+    </header>
+  
+    <ul class="profile-social-links">
+      <li>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getUsuarioL()">Editar</button>    </li>
+      <li>
+        <button type="button" class="btn btn-danger" (click)="deleteUsuario(perfilModelGet._id)">Eliminar</button>
+      </li>
+      <li>
+        <button type="button" class="btn btn-success" routerLink="/cuenta">Cuenta</button>
+      </li>
+   </ul>
+  </aside>
+  
+  
+      <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="mg-3">
+                  <label for="inputName" class="form-label">Nombre</label>
+                  <input type="text" id="inputName" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="perfilModelGet.nombre">
+              </div>
+              <div class="mg-3">
+                  <label for="inputName" class="form-label">Email</label>
+                  <input type="text" id="inputName" class="form-control" name="email" #email="ngModel" [(ngModel)]="perfilModelGet.email">
+              </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="putUsuario()">Save changes</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   
-</body>
+  
+  </body>
+  

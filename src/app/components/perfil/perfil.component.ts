@@ -50,11 +50,11 @@ export class PerfilComponent implements OnInit {
     )
   }
 
-  getUsuarioId(idUsuario){
-    this.sUsuario.obtenerUsuarioId(idUsuario).subscribe(
+  putUsuario() {
+    this.sUsuario.editarUsuario(this.perfilModelGetId, this.token).subscribe(
       (response) => {
         console.log(response);
-        this.perfilModelGetId = response.usario;
+        this.getUsuarioL();
       },
       (error) => {
         console.log(error);
@@ -62,8 +62,9 @@ export class PerfilComponent implements OnInit {
     )
   }
 
+
   deleteUsuario(id) {
-    this.sUsuario.eliminarUsuario(id).subscribe(
+    this.sUsuario.eliminarUsuario(id, this.token).subscribe(
       (response) => {
         console.log(response);
 
@@ -83,15 +84,5 @@ export class PerfilComponent implements OnInit {
     )
   }
 
-  putUsuario() {
-    this.sUsuario.editarUsuario(this.perfilModelGetId).subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
-  }
-
+  
 }

@@ -20,10 +20,6 @@ body{
 
   .form-control{
     margin-bottom: 50px;
-    background-color: #0D0000;
-
-
-
   }
 
 table{
@@ -70,7 +66,6 @@ table{
 
   th {
     color:#D5DDE5;;
-    background:#1b1e24;
     border-bottom:4px solid #9ea7af;
     border-right: 1px solid #343a45;
     font-size:23px;
@@ -102,7 +97,6 @@ table{
 
   tr:hover td {
     background:#4E5066;
-    color:#0D0000;
     border-top: 1px solid #22262e;
   }
 
@@ -172,7 +166,6 @@ table{
   .inputserch{
     position:absolute;
     left: 40%;
-
     display: inline-block;
     transition: 0.5s;
     font-size:20px;

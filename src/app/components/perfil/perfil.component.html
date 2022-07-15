@@ -1,20 +1,20 @@
 <body>
-    <div class="usuario" *ngFor="let us of perfilModelGet">
+    <div class="usuario" >
        
             <div class="col-md-6">
-                <h5 class="card-title mb-3">{{us.nombre}}</h5>
+                <h5 class="card-title mb-3">{{perfilModelGet.nombre}}</h5>
             </div>
             <div class="col-12">
-                <h5 class="card-title mb-3">{{us.email}}</h5>
+                <h5 class="card-title mb-3">{{perfilModelGet.email}}</h5>
             </div>
             
             
             <div class="col-12">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getUsuarioId(us._id)">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getUsuarioId(perfilModelGet._id)">
                     Editar
                   </button>
                   
-              <button type="button" class="btn btn-danger" (click)="deleteUsuarios(us._id)">Eliminar</button>
+              <button type="button" class="btn btn-danger" (click)="deleteUsuario(perfilModelGet._id)">Eliminar</button>
               
 
 

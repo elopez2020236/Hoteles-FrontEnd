@@ -28,6 +28,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ReservacionComponent } from './components/reservacion/reservacion.component';
 import { CuentaComponent } from './components/cuenta/cuenta.component';
+import { SearchUsuarioPipe } from './pipes/search-usuario.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { CuentaComponent } from './components/cuenta/cuenta.component';
     LoaderComponent,
     PerfilComponent,
     ReservacionComponent,
-    CuentaComponent
+    CuentaComponent,
+    SearchUsuarioPipe
   ],
 
   imports: [

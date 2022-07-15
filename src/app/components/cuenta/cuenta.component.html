@@ -9,13 +9,35 @@
     </div>
 
     <!-- "Cards" Obtener Eventos -->
-    <div class="col-lg-4 mb-5" *ngFor="let hab of carritoModelGet">
+    <div class="col-lg-4 mb-5" *ngFor="let hab of habitacion">
 
         <div class="card h-100 shadow border-0">
-            <img class="card-img-top" src="https://images.e-tsw.com/_lib/vimages/Cancun/Hotels/Hard-Rock-Hotel-Cancun/Gallery/a-Cancun-Hard-Rock-Deluxe-Gold-King-DLXDBLCA.jpg" alt="...">
             <div class="card-body p-4">
-                <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{ hab.habitacion.numeroHabitacion }}</div>
-                
+                <div>
+                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{ hab.numeroHabitacion }}</div>
+                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{ hab.precio }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 mb-5" *ngFor="let ser of servicios">
+
+        <div class="card h-100 shadow border-0">
+            <div class="card-body p-4">
+                <div>
+                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{ ser.nombreServicio }}</div>
+                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{ ser.costoServicio }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 mb-5" >
+
+        <div class="card h-100 shadow border-0">
+            <div class="card-body p-4">
+                <div>
+                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{ carritoModelGet.subTotal }}</div>
+                </div>
             </div>
         </div>
     </div>

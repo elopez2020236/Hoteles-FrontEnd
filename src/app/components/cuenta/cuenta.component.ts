@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { carrito } from 'src/app/models/carrito.model';
+import { Habitaciones } from 'src/app/models/habitacion.models';
 import { CuentaService } from 'src/app/services/cuenta.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -13,6 +14,8 @@ export class CuentaComponent implements OnInit {
   public carritoModelGet: carrito;
   public token;
   public role: string;
+  public habitacion = [];
+  public servicios = [];
   
   constructor(
     private _cuentaService: CuentaService,
@@ -31,12 +34,14 @@ export class CuentaComponent implements OnInit {
     this.getCarrito();
   }
 
+
+
   getCarrito() {
     this._cuentaService.obtenerCarrito(this.token).subscribe(
       (response) => {
         this.carritoModelGet = response.carrito;
-        this.carritoModelGet.Habitacion;
-        console.log(this.carritoModelGet.Habitacion);
+        this.habitacion = response.carrito.Habitacion;
+        this.servicios = response.carrito.Servicios;
         console.log(this.carritoModelGet);
       },
       (error) => {

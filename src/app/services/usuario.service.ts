@@ -107,18 +107,15 @@ export class UsuarioService {
     });
   }
 
-  obtenerUsuarioId(idUsuario): Observable<any> {
-    return this._http.get(this.url + '/obtenerUsuarioId/' + idUsuario, { headers: this.headersVariable });
+  editarUsuario(modeloUsuario: Usuario, token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    let parametro = JSON.stringify(modeloUsuario);
+    return this._http.put(this.url + '/editarUsuario/' + modeloUsuario._id, parametro, { headers: headersToken })
   }
 
-  editarUsuario(modeloEvento: Usuario): Observable<any> {
-    let parametro = JSON.stringify(modeloEvento);
-
-    return this._http.put(this.url + '/editarUsuario/' + modeloEvento._id, parametro, { headers: this.headersVariable})
-  }
-
-  eliminarUsuario(idUsuario): Observable<any> {
-    return this._http.delete(this.url + '/eliminarUsuario' + idUsuario, { headers: this.headersVariable});
+  eliminarUsuario(idUsuario, token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.delete(this.url + '/eliminarUsuario/' + idUsuario, { headers: headersToken });
   }
 
   clearToken() {

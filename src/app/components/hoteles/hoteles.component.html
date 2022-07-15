@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="mb-3">
-        <button *ngIf="role === 'ADMIN'" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button *ngIf="role === 'Gerente'" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
       <h6 class="text-center">Agregar hotel</h6>
     </button>
         <div class="row gx-5">
@@ -35,8 +35,8 @@
                         </div>
                         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                             <div class="d-flex align-items-end justify-content-between">
-                                <div *ngIf="role === 'ADMIN'" class="d-grid"><a class="btn btn-outline-info" data-bs-toggle="offcanvas" aria-controls="offcanvasExample" data-bs-target="#offcanvasExample" (click)="getHotelesId(hot._id)">Editar</a></div>
-                                <div *ngIf="role === 'ADMIN'" class="d-grid"><a class="btn btn-outline-danger" (click)="deleteHotel(hot._id)">Eliminar</a></div>
+                                <div *ngIf="role === 'Gerente'" class="d-grid"><a class="btn btn-outline-info" data-bs-toggle="offcanvas" aria-controls="offcanvasExample" data-bs-target="#offcanvasExample" (click)="getHotelesId(hot._id)">Editar</a></div>
+                                <div *ngIf="role === 'Gerente'" class="d-grid"><a class="btn btn-outline-danger" (click)="deleteHotel(hot._id)">Eliminar</a></div>
                                 <div class="d-grid"><a class="btn btn-outline-success" routerLink="/loader" (click)="getHotelesId(hot._id)">Habitaciones</a></div>
                             </div>
                         </div>

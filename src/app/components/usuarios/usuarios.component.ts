@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class UsuariosComponent implements OnInit {
   public usuarioModelGet: Usuario;
   public usuarioModelPost: Usuario;
+  public searchUsuario;
   public token;
 
   constructor( 

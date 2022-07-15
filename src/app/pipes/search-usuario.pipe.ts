@@ -5,8 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchUsuarioPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
-  }
+  transform(usuarios:any, busqueda:any):any {
 
+    if(busqueda == undefined){
+      return usuarios;
+    }else{
+      return usuarios.filter(usuario=>{
+        return usuario.nombre.toLowerCase().includes(busqueda.toLowerCase());
+      })
+    }
+  }
 }

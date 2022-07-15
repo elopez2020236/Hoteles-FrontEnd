@@ -3,6 +3,7 @@
   <button type="button32" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
     Agregar Admin Hotel
   </button>
+    <input [(ngModel)]="searchUsuario" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <table class="table-fill">
         <thead>
         <tr>
@@ -11,7 +12,7 @@
         </tr>
         </thead>
         <tbody class="table-hover">
-        <tr *ngFor="let us of usuarioModelGet">
+        <tr *ngFor="let us of usuarioModelGet | searchUsuario:searchUsuario">
           <td>{{us.nombre}}</td>
           <td>{{us.email}}</td>
         </tr>
@@ -64,7 +65,5 @@
   </div>
 
   <div class="container22">
-
-    <app-graficas></app-graficas>
 
   </div>

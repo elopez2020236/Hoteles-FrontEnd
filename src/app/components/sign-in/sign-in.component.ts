@@ -37,7 +37,7 @@ export class SignInComponent implements OnInit {
     this._usuarioService.login(this.userModel).subscribe(
       (response) => {
         this.getTokenPromesa().then((respuesta) => {
-          this._router.navigate(['/hoteles']);
+          this._router.navigate(['/home']);
         });
 
         const Toast = Swal.mixin({

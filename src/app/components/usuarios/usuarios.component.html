@@ -1,11 +1,11 @@
 <body>
+
+
   <div class="aa_htmlTable">
-    <h2 class="aa_h2" style="color: white">Usuarios</h2>
-    <button type="button32" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
-      Agregar Admin Hotel
-    </button>
-      <input [(ngModel)]="searchUsuario" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      
+    <h2 class="aa_h2">Usuarios</h2>
+
+         <input [(ngModel)]="searchUsuario" class="form-control me-2 inputserch" type="search" placeholder="Search" aria-label="Search">
+
         <table class="table-fill">
           <thead>
           <tr>
@@ -17,26 +17,35 @@
           <tr *ngFor="let us of usuarioModelGet | searchUsuario:searchUsuario">
             <td>{{us.nombre}}</td>
             <td>{{us.email}}</td>
+
           </tr>
+
     </table>
   </div>
-  
+  <div>
+    <tfoot>
+      <button type="button32" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
+        Agregar Admin Hotel
+      </button>
+    </tfoot>
+  </div>
+
      <!--  Modal Agregar Admin Hotel -->
      <div class="cajaa">
       <div class="modal fade" id="agregarUsuarioModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-  
+
         <div class="modal-dialog">
-  
+
           <div class="modal-content">
-  
+
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel"> Agregar Admin Hotel </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-  
+
             <div class="modal-body">
-  
+
               <form>
                 <div class="mg-3">
                   <label for="imputNombre" class="form-label"> Nombre </label>
@@ -49,13 +58,13 @@
                       [(ngModel)]="usuarioModelPost.email">
                   </div>
                 <div class="mg-3">
-                  <label for="imputDescripcion" class="form-label"> Contraseña </label>
+                  <label for="imputDescripcion" class="form-label"> ContraseÃ±a </label>
                   <input type="text" id="imputDescripcion" class="form-control" name="password"
                     #password="ngModel" [(ngModel)]="usuarioModelPost.password">
                 </div>
-  
+
               </form>
-  
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -64,9 +73,5 @@
           </div>
         </div>
       </div>
-    </div>
-  
-    <div class="container22">
-  
     </div>
 </body>

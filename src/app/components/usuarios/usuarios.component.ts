@@ -60,22 +60,17 @@ export class UsuariosComponent implements OnInit {
         this.usuarioModelPost.nombre = '';
         this.usuarioModelPost.email = '';
         this.usuarioModelPost.password = '';
-        this._router.navigate(['hoteles']);
         Swal.fire({
           icon: 'success',
           title: 'Registro completado con exito',
           showConfirmButton: false,
           timer: 1500,
         });
+        this._router.navigate(['/usuarios']);
       },
+
       (error) => {
-        Swal.fire({
-          position: 'top-end',
-          icon: 'error',
-          title: error.error.mensaje,
-          showConfirmButton: false,
-          timer: 1500,
-        });
+      console.log(error);
       }
     );
   }

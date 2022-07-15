@@ -36,8 +36,6 @@ export class PerfilComponent implements OnInit {
     this.getUsuarioL()
   }
 
-  
-
   getUsuarioL() {
     this.sUsuario.usuarioLogeado(this.token).subscribe(
       (response) => {
@@ -50,38 +48,35 @@ export class PerfilComponent implements OnInit {
     )
   }
 
-  putUsuario() {
-    this.sUsuario.editarUsuario(this.perfilModelGetId, this.token).subscribe(
-      (response) => {
-        console.log(response);
-        this.getUsuarioL();
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
-  }
-
 
   deleteUsuario(id) {
-    this.sUsuario.eliminarUsuario(id, this.token).subscribe(
-      (response) => {
-        console.log(response);
-
-        //Alert
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Servicio Eliminado Correctamente',
-          showConfirmButton: false,
-          timer: 1500
-        })
-
-      },
-      (error) => {
-        console.log(<any>error);
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "Si borras tu cuenta no podrás recuperarla",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Borrar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.sUsuario.eliminarUsuario(id, this.token).subscribe(
+          (response) => {
+            console.log(response);
+          },
+          (error) => {
+            console.log(<any>error);
+          }
+        )
+        Swal.fire(
+          'Eliminado',
+          'Usuario correctamente eliminado.',
+          'success'
+        )
+        this._router.navigate(['/sign-in']);
+        localStorage.clear();
       }
-    )
+    })
   }
 
   

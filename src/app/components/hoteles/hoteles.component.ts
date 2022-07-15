@@ -115,6 +115,7 @@ export class HotelesComponent implements OnInit {
         }
       );
   }
+  
   putHoteles() {
     this._hotelService
       .editarHoteles(this.hotelesModelGetId, this.token)

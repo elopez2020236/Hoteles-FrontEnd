@@ -29,6 +29,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { ReservacionComponent } from './components/reservacion/reservacion.component';
 import { CuentaComponent } from './components/cuenta/cuenta.component';
 import { SearchUsuarioPipe } from './pipes/search-usuario.pipe';
+import { BuscarUsuarioComponent } from './components/buscar-usuario/buscar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { SearchUsuarioPipe } from './pipes/search-usuario.pipe';
     PerfilComponent,
     ReservacionComponent,
     CuentaComponent,
-    SearchUsuarioPipe
+    SearchUsuarioPipe,
+    BuscarUsuarioComponent
   ],
 
   imports: [

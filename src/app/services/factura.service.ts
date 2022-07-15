@@ -7,7 +7,7 @@ import { Factura } from '../models/factura.model';
   providedIn: 'root'
 })
 export class FacturaService {
-  public url: String = 'https://hoteles-grupo-3.herokuapp.com';
+  public url: String = 'https://hoteles-grupo-3.herokuapp.com/api';
   public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(public _http: HttpClient) { }

@@ -9,7 +9,7 @@ import { Factura } from '../models/factura.model';
 })
 
 export class CuentaService {
-  public url: String = 'https://hoteles-grupo-3.herokuapp.com';
+  public url: String = 'https://hoteles-grupo-3.herokuapp.com/api';
   public headersVariable = new HttpHeaders().set(
     'Content-Type',
     'application/json'

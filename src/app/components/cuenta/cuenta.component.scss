@@ -1,11 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
  body {
+    
+    padding-top: 25px;
    font-family: 'Open Sans', sans-serif;
    font-weight: 300;
    line-height: 1.42em;
    color:#A7A1AE;
-   background-color:white;
+   background-color:#0D0000;
  }
 
  h1 {
@@ -75,10 +77,10 @@
  }
 
  .container th {
-     background-color: #1F2739;
+     background-color: #212529;
  }
 .container tfoot {
-  background-color: #1F2739;
+  background-color: #212529;
   align-items: center;
   justify-content: center;
 
@@ -100,7 +102,7 @@
  }
 
  .container td:hover {
-   background-color: #FFF842;
+   background-color: #77adab;
    color: #403E10;
    font-weight: bold;
 
@@ -117,3 +119,4 @@
  .container td:nth-child(4),
  .container th:nth-child(4) { display: none; }
  }
+

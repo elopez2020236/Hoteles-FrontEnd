@@ -9,7 +9,7 @@ import { Servicio } from '../models/servicio.model';
 })
 
 export class ServicioService {
-  public url: String = 'http://localhost:3000/api';
+  public url: String = 'https://hoteles-grupo-3.herokuapp.com';
   public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(public _http: HttpClient) { }

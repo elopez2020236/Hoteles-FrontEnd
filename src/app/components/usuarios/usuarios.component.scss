@@ -1,18 +1,32 @@
-body {
-    background-color: #3e94ec;
-    font-family: "Roboto", helvetica, arial, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    text-rendering: optimizeLegibility;
-  }
+body{
+  padding-top: 15px;
+  padding-bottom: 50px;
+  background-color:#0D0000;
+  position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+    
+    
+    
+}
 
   .aa_h2{
     text-align: center;
   }
   
-  .button32{
+  .btn{
     margin-left: 50px;
+    margin-bottom: 50px;
   }
+
+  .form-control{
+    margin-bottom: 50px;
+    
+    
+  }
+
+  
 
   div.table-title {
      display: block;
@@ -72,7 +86,7 @@ body {
     
   tr {
     border-top: 1px solid #C1C3D1;
-    border-bottom-: 1px solid #C1C3D1;
+    border-bottom: 1px solid #C1C3D1;
     color:#666B85;
     font-size:16px;
     font-weight:normal;

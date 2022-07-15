@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class UsuarioService {
-  public url: String = 'http://localhost:3000/api';
+  public url: String = 'https://hoteles-grupo-3.herokuapp.com';
   public headersVariable = new HttpHeaders().set(
     'Content-Type',
     'application/json'
@@ -106,13 +106,7 @@ export class UsuarioService {
       headers: this.headersVariable,
     });
   }
-
-  editarUsuario(modeloUsuario: Usuario, token): Observable<any> {
-    let headersToken = this.headersVariable.set('Authorization', token);
-    let parametro = JSON.stringify(modeloUsuario);
-    return this._http.put(this.url + '/editarUsuario/' + modeloUsuario._id, parametro, { headers: headersToken })
-  }
-
+  
   eliminarUsuario(idUsuario, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization', token);
     return this._http.delete(this.url + '/eliminarUsuario/' + idUsuario, { headers: headersToken });

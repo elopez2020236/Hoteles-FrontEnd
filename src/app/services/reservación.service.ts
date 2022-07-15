@@ -8,7 +8,7 @@ import { Reservacion } from '../models/reservacion.model';
   providedIn: 'root'
 })
 export class ReservaciónService {
-  public url: String = 'http://localhost:3000/api';
+  public url: String = 'https://hoteles-grupo-3.herokuapp.com';
   public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(public _http: HttpClient) { }
